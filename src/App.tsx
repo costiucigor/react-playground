@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Post from "./components/Post";
-import PostList from "./components/PostList";
+import PostList from "./components/PostLIst";
 import AddPost from "./components/AddPost";
 import "./styles/App.css";
 

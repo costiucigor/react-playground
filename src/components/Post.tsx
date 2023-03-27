@@ -4,6 +4,7 @@ interface post {
     id: number;
     title: String;
     description: String;
+    number: number;
 }
 
 const Post = (props:post) => {
@@ -12,7 +13,7 @@ const Post = (props:post) => {
         <div className="App">
             <div className="post">
                 <div className="post__content">
-                    <strong>{props.id}. </strong>
+                    <strong>{props.number}. </strong>
                     <strong>{props.title}</strong>
                     <div>
                         {props.description}

@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Button from "./UI/button/Button";
+import Input from "./UI/input/Input";
 
 interface Post {
     id: number;
@@ -14,10 +16,10 @@ const AddPost = ({ onAddPost }: AddPostProps) => {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
 
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
         const newPost: Post = {
-            id: Math.floor(Math.random() * 1000),
+            id: Date.now(),
             title: title,
             description: description,
         };
@@ -29,14 +31,12 @@ const AddPost = ({ onAddPost }: AddPostProps) => {
     return (
         <form onSubmit={handleSubmit}>
             <div>
-                <h1>Enter title</h1>
-                <input value={title} onChange={(event) => setTitle(event.target.value)} />
+                <Input value={title} placeholder="Title" onChange={(e: any) => setTitle(e.target.value)} />
             </div>
             <div>
-                <h1>Enter description</h1>
-                <input value={description} onChange={(event) => setDescription(event.target.value)} />
+                <Input value={description} placeholder="Description" onChange={(e: any) => setDescription(e.target.value)} />
             </div>
-            <button type="submit">Add Post</button>
+            <Button type="submit">Add Post</Button>
         </form>
     );
 };

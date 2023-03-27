@@ -21,8 +21,8 @@ const PostLIst = ({posts}: PostListProps, {HeadTitle}: PostTitle) => {
     return (
         <div>
             <h1 style={{textAlign: "center"}}>{HeadTitle}</h1>
-            {posts.map((post) => (
-                <Post key={post.id} {...post} />
+            {posts.map((post, index) => (
+                <Post number={index + 1} key={post.id} {...post} />
             ))}
         </div>
     );
