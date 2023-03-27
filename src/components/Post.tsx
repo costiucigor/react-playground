@@ -7,6 +7,7 @@ interface post {
 }
 
 const Post = (props:post) => {
+
     return (
         <div className="App">
             <div className="post">

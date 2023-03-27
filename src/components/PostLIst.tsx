@@ -10,12 +10,17 @@ interface Post {
 
 interface PostListProps {
     posts: Post[];
+    headTitle: string;
 }
 
-const PostLIst = ({posts}: PostListProps) => {
+interface PostTitle {
+    HeadTitle: string;
+}
+
+const PostLIst = ({posts}: PostListProps, {HeadTitle}: PostTitle) => {
     return (
         <div>
-            <h1 style={{textAlign: "center"}}>List of posts</h1>
+            <h1 style={{textAlign: "center"}}>{HeadTitle}</h1>
             {posts.map((post) => (
                 <Post key={post.id} {...post} />
             ))}
