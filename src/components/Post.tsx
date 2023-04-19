@@ -1,4 +1,5 @@
 import React from "react";
+import MyButton from "./UI/button/Button";
 
 interface post {
     id: number;
@@ -20,7 +21,7 @@ const Post = (props:post) => {
                     </div>
                 </div>
                 <div className="post__btns">
-                    <button>Delete</button>
+                    <MyButton onClick={() => props.remove(props.post)}>Delete</MyButton>
                 </div>
             </div>
         </div>

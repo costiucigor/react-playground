@@ -1,7 +1,6 @@
 import React from 'react';
 import Post from "./Post";
 
-
 interface Post {
     id: number;
     title: string;
@@ -13,19 +12,20 @@ interface PostListProps {
     headTitle: string;
 }
 
-interface PostTitle {
-    HeadTitle: string;
+interface RemovePost {
+    remove: any;
 }
 
-const PostLIst = ({posts}: PostListProps, {HeadTitle}: PostTitle) => {
+const PostList = ({posts, headTitle, remove}: PostListProps & RemovePost) => {
     return (
         <div>
-            <h1 style={{textAlign: "center"}}>{HeadTitle}</h1>
+            <h1 style={{textAlign: "center"}}>{headTitle}</h1>
             {posts.map((post, index) => (
-                <Post number={index + 1} key={post.id} {...post} />
+                <PostList posts={posts} remove={removePost} headTitle="My Blog Posts" />
+
             ))}
         </div>
     );
 };
 
-export default PostLIst;
+export default PostList;

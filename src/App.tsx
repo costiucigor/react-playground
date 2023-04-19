@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import Post from "./components/Post";
 import PostList from "./components/PostLIst";
 import AddPost from "./components/AddPost";
@@ -17,16 +17,25 @@ const App = () => {
         { id: 3, title: "Post 3", description: "Consectetur adipiscing elit" },
     ];
 
+    const removePost = (id: number) => {
+        const filteredPosts = posts.filter(post => post.id !== id);
+        if (filteredPosts.length > 0) {
+            const firstPostId = filteredPosts[0].id;
+            remove(firstPostId);
+        }
+    };
+
     const [posts, setPosts] = useState(initialPosts);
 
     const handleAddPost = (newPost: Post) => {
         setPosts([...posts, newPost]); // add the new post to the posts array using the spread operator
+        // @ts-ignore
     };
 
     return (
         <div className="App">
             <AddPost onAddPost={handleAddPost} />
-            <PostList posts={posts} headTitle="My Blog Posts" />
+            <PostList posts={posts} remove={removePost} headTitle="My Blog Posts" />
         </div>
     );
 };
