@@ -10,13 +10,11 @@ interface Post {
 interface PostListProps {
     posts: Post[];
     headTitle: string;
-}
-
-interface RemovePost {
     remove: (post: Post) => void;
 }
 
-const PostList = ({posts, headTitle, remove}: PostListProps & RemovePost) => {
+
+const PostList = ({posts, headTitle, remove}: PostListProps) => {
     return (
         <div>
             <h1 style={{ textAlign: "center" }}>{headTitle}</h1>

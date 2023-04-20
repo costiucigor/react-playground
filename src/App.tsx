@@ -17,12 +17,9 @@ const App = () => {
         { id: 3, title: "Post 3", description: "Consectetur adipiscing elit" },
     ];
 
-    const removePost = (id: number) => {
-        const filteredPosts = posts.filter(post => post.id !== id);
-        if (filteredPosts.length > 0) {
-            const firstPostId = filteredPosts[0].id;
-            remove(firstPostId);
-        }
+    const removePost = (post: Post) => {
+        const updatedPosts = posts.filter((p) => p.id !== post.id);
+        setPosts(updatedPosts);
     };
 
     const [posts, setPosts] = useState(initialPosts);
