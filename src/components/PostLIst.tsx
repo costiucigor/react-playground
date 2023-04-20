@@ -13,16 +13,15 @@ interface PostListProps {
 }
 
 interface RemovePost {
-    remove: any;
+    remove: (post: Post) => void;
 }
 
 const PostList = ({posts, headTitle, remove}: PostListProps & RemovePost) => {
     return (
         <div>
-            <h1 style={{textAlign: "center"}}>{headTitle}</h1>
+            <h1 style={{ textAlign: "center" }}>{headTitle}</h1>
             {posts.map((post, index) => (
-                <PostList posts={posts} remove={removePost} headTitle="My Blog Posts" />
-
+                <Post key={post.id} id={post.id} title={post.title} description={post.description} remove={remove} number={index + 1} />
             ))}
         </div>
     );

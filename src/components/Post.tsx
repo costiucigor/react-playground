@@ -1,14 +1,15 @@
 import React from "react";
 import MyButton from "./UI/button/Button";
 
-interface post {
+interface PostProps {
     id: number;
     title: String;
     description: String;
+    remove: (post: PostProps) => void;
     number: number;
 }
 
-const Post = (props:post) => {
+const Post = (props: PostProps) => {
 
     return (
         <div className="App">
@@ -21,7 +22,7 @@ const Post = (props:post) => {
                     </div>
                 </div>
                 <div className="post__btns">
-                    <MyButton onClick={() => props.remove(props.post)}>Delete</MyButton>
+                    <MyButton onClick={() => props.remove(props)} label={"Delete"} type={"submit"}>Delete</MyButton>
                 </div>
             </div>
         </div>

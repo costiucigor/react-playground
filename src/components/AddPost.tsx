@@ -1,6 +1,7 @@
 import React, {useRef, useState} from "react";
 import Button from "./UI/button/Button";
 import Input from "./UI/input/Input";
+import MyButton from "./UI/button/Button";
 
 interface Post {
     id: number;
@@ -36,7 +37,7 @@ const AddPost = ({ onAddPost }: AddPostProps) => {
             <div>
                 <Input value={description} placeholder="Description" onChange={(e: any) => setDescription(e.target.value)} />
             </div>
-            <Button type="submit">Add Post</Button>
+            <MyButton type="submit" label={"Add"}>Add Post</MyButton>
         </form>
     );
 };
